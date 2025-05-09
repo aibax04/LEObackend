@@ -1,14 +1,8 @@
-ctransformers
 flask
-sentence-transformers
-pinecone
-python-dotenv
 gunicorn
-flask-cors
 langchain
-transformers
-torch
-accelerate
-bitsandbytes
+pinecone-client
+flask-cors
+python-dotenv
 sqlalchemy
 psycopg2-binary

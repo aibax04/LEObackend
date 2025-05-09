@@ -5,3 +5,13 @@ __pycache__/
 .env
 *.git
 *.vscode
+__pycache__/
+*.pdf
+*.ipynb
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+.env

@@ -1,21 +1,24 @@
-# Use the official Python image
-FROM python:3.11-slim
+# Use minimal Python image
+FROM python:3.11-slim-bullseye
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy project files
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc \
+ && rm -rf /var/lib/apt/lists/*
+
+# Copy app files
 COPY . .
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Python dependencies
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-# Expose port (same as Flask default)
+# Expose port Flask runs on
 EXPOSE 5000
 
-# Set environment variables (optional)
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-
-# Run Flask app
-CMD ["flask", "run"]
+# Run with Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app.py"]
