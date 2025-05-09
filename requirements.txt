@@ -1,0 +1,14 @@
+ctransformers
+flask
+sentence-transformers
+pinecone
+python-dotenv
+gunicorn
+flask-cors
+langchain
+transformers
+torch
+accelerate
+bitsandbytes
+sqlalchemy
+psycopg2-binary
