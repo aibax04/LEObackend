@@ -1,8 +1,10 @@
+
+
 flask==2.3.3
 gunicorn==21.2.0
 python-dotenv==1.0.0
 pinecone-client==3.0.0
 sentence-transformers==2.2.2
-# Use CPU-only version of PyTorch to reduce size
-torch==2.0.1+cpu --extra-index-url https://download.pytorch.org/whl/cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.0.1+cpu
 transformers==4.30.0

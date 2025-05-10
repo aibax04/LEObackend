@@ -21,7 +21,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 # Install dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt && pip cache purge
 
 # Second stage - smaller final image
 FROM python:3.10-slim
@@ -38,5 +38,5 @@ COPY . .
 # Expose port
 EXPOSE 8080
 
-# Command to run the application
-CMD gunicorn --bind 0.0.0.0:8080 app.py
+# Command to run the application with proper signal handling
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app.py"]

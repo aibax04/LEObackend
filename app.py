@@ -10,7 +10,8 @@ load_dotenv()
 app = Flask(__name__)
 
 # Load model and Pinecone
-embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+# Change this line in app.py
+embedding_model = SentenceTransformer("paraphrase-MiniLM-L3-v2")  # Smaller model
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 index = pc.Index("leo")
 
