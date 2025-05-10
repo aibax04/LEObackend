@@ -1,5 +1,5 @@
 # Use Python 3.10 slim base image
-FROM python:3.10-slim as builder
+FROM python:3.10-slim AS builder
 
 # Set working directory
 WORKDIR /app
@@ -21,7 +21,8 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 # Install dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt && pip cache purge
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip cache purge
 
 # Second stage - smaller final image
 FROM python:3.10-slim
