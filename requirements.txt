@@ -1,8 +1,7 @@
-flask
-gunicorn
-langchain
-pinecone-client
-flask-cors
-python-dotenv
-sqlalchemy
-psycopg2-binary
+flask==2.3.3
+sentence-transformers==2.2.2
+pinecone-client==3.0.0
+python-dotenv==1.0.0
+gunicorn==21.2.0
+# Reducing model size requirements for Railway's 512MB RAM limit
+torch==2.0.1 --index-url https://download.pytorch.org/whl/cpu
